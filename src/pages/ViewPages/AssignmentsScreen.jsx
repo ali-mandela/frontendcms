@@ -50,14 +50,16 @@ const AssignmentsScreen = () => {
         setSelectedSubmission(submission);
         setIsSubOpen(true);
     };
-
+    const URL = import.meta.env.VITE_URL;
+    const source = `${URL}/${assignmentSingle?.fileUrl}`
+   
     return (
         <div className={style.assigmnmentContainer}>
             <h1>Assignment Details</h1>
             <div className={style.top}>
                 <p>Title: {assignmentSingle?.title}</p>
                 <p><b>Description:</b> {assignmentSingle?.description}</p>
-                <iframe src={`http://localhost:8000/uploads/${assignmentSingle?.fileUrl}`} width="100%" height="600px"></iframe>
+                <iframe src={source} width="100%" height="600px"></iframe>
             </div>
             <h1>Assignment Submission Details</h1>
             <div className={style.bottom}>
@@ -108,13 +110,15 @@ const ViewSubmissionModal = ({ isOpen, onClose, submission, onUpdateMarks, newMa
     const handleUpdateMarks = () => {
         onUpdateMarks(submission?.user._id);
     };
+     const URL = import.meta.env.VITE_URL;
+    const source = `${URL}/${submission?.fileUrl}`
 
     return (
         <div className={`${style.modal} ${isOpen ? style.open : ''}`}>
             {isOpen && (
                 <div className={style.modalContent}>
                     <span className={style.closeBtn} onClick={onClose}>&times;</span>
-                    <iframe src={`http://localhost:8000/uploads/${submission?.fileUrl}`} height='100%' width='100%'></iframe>
+                    <iframe src={source} height='100%' width='100%'></iframe>
                     <div>
                         <label htmlFor="marks">New Marks:</label>
                         <input type="number" id="marks" name="marks" value={newMarks} onChange={(e) => setNewMarks(e.target.value)} />

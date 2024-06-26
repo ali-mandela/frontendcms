@@ -16,7 +16,7 @@ const Dashboard = () => {
             try {
                 const res = await axios.post('/professor/courses', { instructor: user?._id });
                 if (res.data.success) {
-                    toast.success("Courses fetched successfully!");
+                    // toast.success("Courses fetched successfully!");
                     setCourseList(res.data.courses);
                 } else {
                     toast.error("Failed to fetch courses. Please try again.");

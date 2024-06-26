@@ -16,7 +16,7 @@ const RegisterStudent = () => {
     const handleRegister = async(e) => {
         e.preventDefault()
         try {
-            const res = await axios.post(`/api/v1/auth//register-student`, {name, email, password});
+            const res = await axios.post(`/auth/register-student`, {name, email, password});
                        
 
             if (res.data.success) {

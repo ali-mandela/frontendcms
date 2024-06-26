@@ -77,8 +77,10 @@ const MaterialList = ({ materialList, courseId }) => {
     return ( <div className="Announcement-display">
     {
         materialList?.map((material, index)=>{
+ 
+            const URL = import.meta.env.VITE_URL;
+  const source = `${URL}/${material?.fileUrl}`
 
-            const srx = `http://localhost:8000/uploads/${material?.fileUrl}`
 
             return(<>
                 <div className="Announcement-list">
@@ -91,7 +93,7 @@ const MaterialList = ({ materialList, courseId }) => {
                         Delete material
                     </div>
                    </div>
-                    <iframe src={srx} width="100%" height="600px"></iframe>
+                    <iframe src={source} width="100%" height="600px"></iframe>
 
 
                     
@@ -126,9 +128,11 @@ const AssignmentList = ({ assignmentList, courseId }) => {
     return ( <div className="Announcement-display">
     {
         assignmentList?.map((material, index)=>{
+            const URL = import.meta.env.VITE_URL;
+  const source = `${URL}/${material?.fileUrl}`
 
-            const srx = `http://localhost:8000/uploads/${material?.fileUrl}`
 
+            
             return(<>
                 <div className="Announcement-list">
                    <div className="top">
@@ -140,7 +144,7 @@ const AssignmentList = ({ assignmentList, courseId }) => {
                         Delete Assignment
                     </div>
                    </div>
-                    <iframe src={srx} width="100%" height="600px"></iframe>
+                    <iframe src={source} width="100%" height="600px"></iframe>
                     
                    
 
@@ -219,6 +223,7 @@ const getAllAssignment = async () => {
         // console.log(announcementList);
     // }
 }, []);
+
 
 
     return (

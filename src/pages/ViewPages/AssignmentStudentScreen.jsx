@@ -7,7 +7,8 @@ import {  useNavigate, useParams } from "react-router-dom";
 import { useUserContext } from '../../../context/userContext';
 
 const AssignmentList = ({ assignmentList }) => {
-    const srx = `http://localhost:8000/uploads/${assignmentList?.fileUrl}`
+  const URL = import.meta.env.VITE_URL;
+  const source = `${URL}/${assignmentList?.fileUrl}`
 
     
     return (
@@ -17,7 +18,7 @@ const AssignmentList = ({ assignmentList }) => {
                         <p><b>Description:</b> {assignmentList?.description}</p>
                     </div>
                     <div className={style.materialsRight}> 
-                    <iframe src={srx} height='600px' width='100%'></iframe>
+                    <iframe src={source} height='600px' width='100%'></iframe>
                     </div>
                 </div>  
     )

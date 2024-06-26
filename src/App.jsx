@@ -32,8 +32,8 @@ import Quizzes from './student/Quizzes';
 import SingleQuizzes from './student/SingleQuizzes';
 
 // axios.defaults.baseURL = 'http://localhost:8000/api/v1';
-axios.defaults.baseURL = 'https://backendcms.onrender.com/api/v1/';
-
+const key = import.meta.env.VITE_API;
+axios.defaults.baseURL = key;
 
 const App = () => {
 

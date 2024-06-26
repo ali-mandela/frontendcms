@@ -29,7 +29,8 @@ const MaterialScreen = () => {
   }, [])
   
   ; 
- const srx = `http://localhost:8000/uploads/${materialSingle?.fileUrl}`
+  const URL = import.meta.env.VITE_URL;
+ const srx = `${URL}/${materialSingle?.fileUrl}`
 
 
   
